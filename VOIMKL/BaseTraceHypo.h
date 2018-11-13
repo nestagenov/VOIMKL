@@ -21,7 +21,7 @@ public:
 	void IncNmiss();
 	void NullNmiss(); //зануление при обновлении 
 	const int GetNmiss();
-	void UpdateState(mat P, colvec x); //для обновления по предсказаниям или измерениям
+	//void UpdateState(mat P, colvec x); //для обновления по предсказаниям или измерениям
 	//bool GetUpdateWithM();
 };
 

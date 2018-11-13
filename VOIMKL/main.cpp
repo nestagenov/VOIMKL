@@ -104,15 +104,15 @@ main(int argc, char** argv)
 //	}
 //	F.print("F:");
 	vector< vector<double> > costMatrix(3, vector<double>(3, 0));
-	costMatrix[0][0] = 13;
-	costMatrix[0][1] = 2;
-	costMatrix[0][2] = 3;
-	costMatrix[1][0] = 4;
-	costMatrix[1][1] = 8;
+	costMatrix[0][0] = 10000;
+	costMatrix[0][1] = 4;
+	costMatrix[0][2] = 5;
+	costMatrix[1][0] = 10000;
+	costMatrix[1][1] = 10000;
 	costMatrix[1][2] = 6;
-	costMatrix[2][0] = 15;
-	costMatrix[2][1] = 9;
-	costMatrix[2][2] = 10;
+	costMatrix[2][0] = 10000;
+	costMatrix[2][1] = 10000;
+	costMatrix[2][2] = 10000;
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 3; j++)
