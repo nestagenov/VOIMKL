@@ -51,9 +51,9 @@ CHypo::CHypo(CMeasurements &newM) : CBaseTraceHypo()
 	this->x(3) = newM.Coordinates.y;
 	this->x(6) = newM.Coordinates.z;
 	this->Napprove = 0;
-	for (int i1 = 0, r1=0; i1 < N, r1<M; i1+3, r1++)
+	for (int i1 = 0, r1=0; i1 < N; i1+3, r1++)
 	{
-		for (int i2 = 0, r2=0; i2 < N, r2<M; i2 + 3, r2++)
+		for (int i2 = 0, r2=0; i2 < N; i2 + 3, r2++)
 		{
 			this->P(i1, i2) = newM.GetR()(r1, r2);
 		}

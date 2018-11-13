@@ -26,12 +26,10 @@ void CVOI::associate()
 	if (!BankOfSection[CurrentSector].GetBankTrace().empty())
 	{
 
-
 	}
 
 	if (!BankOfSection[CurrentSector].GetBankHypo().empty())
 	{
-
 
 	}
 

@@ -30,10 +30,10 @@
     <ClCompile Include="VOI.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="..\hungarian-algorithm\Hungarian.cpp">
+    <ClCompile Include="Section.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="Section.cpp">
+    <ClCompile Include="..\hungarian-algorithm\testMain.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,13 +50,13 @@
     <ClInclude Include="VOI.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="..\hungarian-algorithm\Hungarian.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="Section.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="stadfx.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\hungarian-algorithm\Hungarian.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>

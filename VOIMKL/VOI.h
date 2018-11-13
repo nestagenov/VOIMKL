@@ -4,6 +4,7 @@
 #include <vector>
 #include "Measurements.h"
 #include "BaseTraceHypo.h"
+#include <Hungarian.h>
 
 class CVOI{
 private:
