@@ -13,6 +13,7 @@ private:
 	mutable double Bmin, Bmax; // границы обзора, по которому работаем
 	double FirstAngle;  // первый угол после Вmin
 	int CurrentSector; // текущий сектор, с которым идет работа сейчас
+	HungarianAlgorithm HungAlgo;
 public:
 	CVOI();
 	~CVOI();

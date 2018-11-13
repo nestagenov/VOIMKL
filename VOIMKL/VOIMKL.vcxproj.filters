@@ -33,7 +33,7 @@
     <ClCompile Include="Section.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="..\hungarian-algorithm\testMain.cpp">
+    <ClCompile Include="..\hungarian-algorithm\Hungarian.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>

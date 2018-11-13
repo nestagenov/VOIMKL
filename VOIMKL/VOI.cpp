@@ -35,6 +35,22 @@ void CVOI::associate()
 
 	if (!BankOfSection[CurrentSector].GetBankMeasurements().empty())
 	{
+		double similarityRate = 0;
+		int size = BankOfSection[CurrentSector].GetBankMeasurements().size();
+		vector <vector<double>> MatrixSet(size, vector<double>(size, 0));
+		for (int i = 0; i < size; i++)
+		{
+			for (int j = 0; j < size; j++)
+			{
+				
+				MatrixSet[i][i] = constBigNumber;
+			}
+			
+		}
+		vector<int> assignment;
+		double cost = HungAlgo.Solve(MatrixSet, assignment);
+
+
 
 	}
 

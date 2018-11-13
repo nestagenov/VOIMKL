@@ -149,7 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\hungarian-algorithm\testMain.cpp" />
+    <ClCompile Include="..\hungarian-algorithm\Hungarian.cpp" />
     <ClCompile Include="BaseTraceHypo.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Measurements.cpp" />
