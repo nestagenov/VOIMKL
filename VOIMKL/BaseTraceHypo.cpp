@@ -60,7 +60,7 @@ CHypo::CHypo(CMeasurements &newM) : CBaseTraceHypo()
 	{
 		for (int i2 = 0, r2=0; r2 < M; i2 + 3, r2++)
 		{
-			this->P(i1, i2) = newM.GetR()(r1, r2);
+			this->P(i1, i2) = newM.GetR()(r1, r2); //т.к. матрица R меньше P
 		}
 	}
 	this->Q = constQ;
