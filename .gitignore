@@ -1,0 +1,10 @@
+/armadillo
+*/Debug
+/Debug
+VOIMKL/Debug/*
+VOINKL/Release/*
+VOIMKL/x64/*
+/lib_win64
+/mkl
+*/Release
+*/x64
