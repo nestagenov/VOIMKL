@@ -1,10 +1,10 @@
 #ifndef VOI_H
 #define VOI_H
-#include "stadfx.h"
 #include <vector>
-#include "Measurements.h"
-#include "BaseTraceHypo.h"
 #include <Hungarian.h>
+#include "stadfx.h"
+#include "Section.h"
+class CSection;
 
 class CVOI{
 private:

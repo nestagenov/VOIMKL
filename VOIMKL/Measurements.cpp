@@ -6,7 +6,7 @@ mat &get_Rconst() {
 	static colvec INIT_DIAG;
 	static mat RCONST = zeros<mat>(M, M);
 	if (!initialized) {
-		INIT_DIAG << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0;
+		INIT_DIAG << 0 << 0 << 0;
 		RCONST.diag() = INIT_DIAG;
 		initialized = true;
 	}

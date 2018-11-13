@@ -6,7 +6,7 @@ CVOI::CVOI() : BankOfSection(1)
 	this->Bmin = 0;
 	this->Bmax = 0;
 	this->FirstTry = true;
-	this->FirstAngle = 0;
+	this->FirstAngle = -1;
 	this->CurrentSector = 0;
 }
 
@@ -41,7 +41,7 @@ void CVOI::associate()
 		{
 			if ((assignment[i] != -1) && (MatrixSet[i][assignment[i]] != constBigNumber)) //венгерский алгоритм в любом случае найдет в каждой строке по числу, если кол-во столбцов позволяет,  -1 оно возвращает когда столбцов меньше строк
 			{
-				//FK обновим эту i гипотезу измерением из assigment[i]
+				//FK обновим эту i трассу измерением из assigment[i]
 				BankOfSection[CurrentSector].SetBankTrace()[i].NullNmiss();
 			}
 			else
@@ -108,14 +108,14 @@ void CVOI::associate()
 				CHypo newHypo(std::move(mes));
 				//FK обновим эту гипотезу измерением из assigment[i]
 				BankOfSection[CurrentSector].SetBankHypo().push_back(newHypo);
-				for (int j = 0; j < size; j++)
-				{
-					MatrixSet[i][j] = constBigNumber; //чтобы исключить повторное взятие уже использовнных измерений
-					MatrixSet[j][i] = constBigNumber;
-				}
-				BankOfSection[CurrentSector].SetBankHypo().erase(BankOfSection[CurrentSector].SetBankHypo().cbegin() + i);
-				BankOfSection[CurrentSector].SetBankHypo().erase(BankOfSection[CurrentSector].SetBankHypo().cbegin() + assignment[i]);
-				//тут не будет работать, потому что оно находит неоптимальные решения, так еще и измеренияу удаляются криво
+				//for (int j = 0; j < size; j++)
+				//{
+				//	MatrixSet[i][j] = constBigNumber; //чтобы исключить повторное взятие уже использовнных измерений
+				//	MatrixSet[j][i] = constBigNumber;
+				//}
+				//BankOfSection[CurrentSector].SetBankHypo().erase(BankOfSection[CurrentSector].SetBankHypo().cbegin() + i);
+				//BankOfSection[CurrentSector].SetBankHypo().erase(BankOfSection[CurrentSector].SetBankHypo().cbegin() + assignment[i]);
+				//тут не будет работать, потому что оно находит неоптимальные решения, так еще и измерения удаляются криво
 			}
 		}
 	}
@@ -146,14 +146,16 @@ void CVOI::pushSectorObserved(double time, double b)
 		this->BankOfSection.resize(howmanysection);
 		this->FirstAngle = b;
 	}
-	else if (FirstTry && (b==Bmax))
+	TimeToStartAssociation(time);
+	if (FirstTry && (b==Bmax))
 	{
 		FirstTry = false;
 	}
-	TimeToStartAssociation(time);
-	this->BankOfSection[CurrentSector].SetLasttime(time);
+	
 	if (b == Bmax) CurrentSector = 0;
 	else (this->CurrentSector++); 
+
+	this->BankOfSection[CurrentSector].SetLasttime(time);
 }
 
 //void CVOI::TimeToStartAssociation(double time)

@@ -30,13 +30,18 @@ const int CBaseTraceHypo::GetNmiss()
 //}
 
 CTrace::CTrace() :CBaseTraceHypo()
-{}
+{
+	this->ID = COPIES_COUNT;
+	COPIES_COUNT++;
+}
 
 CTrace::CTrace(CHypo &&hypo)
 {
 	x = std::move(hypo.x);
 	P = std::move(hypo.P);
 	Q = std::move(hypo.Q);
+	this->ID = COPIES_COUNT;
+	COPIES_COUNT++;
 	this->Nmiss = 0;
 }
 
@@ -51,9 +56,9 @@ CHypo::CHypo(CMeasurements &newM) : CBaseTraceHypo()
 	this->x(3) = newM.Coordinates.y;
 	this->x(6) = newM.Coordinates.z;
 	this->Napprove = 0;
-	for (int i1 = 0, r1=0; i1 < N; i1+3, r1++)
+	for (int i1 = 0, r1=0; r1 < M; i1+3, r1++)
 	{
-		for (int i2 = 0, r2=0; i2 < N; i2 + 3, r2++)
+		for (int i2 = 0, r2=0; r2 < M; i2 + 3, r2++)
 		{
 			this->P(i1, i2) = newM.GetR()(r1, r2);
 		}

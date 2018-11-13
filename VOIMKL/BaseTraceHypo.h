@@ -1,12 +1,11 @@
 #ifndef BaseTraceHypo_H
 #define BaseTraceHypo_H
 #include "stadfx.h"
+#include "Measurements.h"
 
 using namespace arma;
-
 class CHypo;
 class CMeasurements;
-
 class CBaseTraceHypo{
 protected:
 	int Nmiss;
@@ -26,6 +25,8 @@ public:
 };
 
 class CTrace: public CBaseTraceHypo{
+private:	
+	int ID;
 public:
 	CTrace();
 	CTrace(CHypo &&hypo);

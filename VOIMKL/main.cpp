@@ -1,13 +1,11 @@
-#include <iostream>
-#include <armadillo>
-#include "Hungarian.h"
-
+#include "stadfx.h"
+#include "VOI.h"
+#include "ResultOfScan.h"
 
 using namespace std;
 using namespace arma;
 
-int
-main(int argc, char** argv)
+int main(int argc, char** argv)
 {
 //	cout << "Armadillo version: " << arma_version::as_string() << endl;
 //	mat A(2, 3);  // directly specify the matrix size (elements are uninitialised)
@@ -103,33 +101,52 @@ main(int argc, char** argv)
 //		F(row, col) = randu<mat>(2, 3);  // each element in field<mat> is a matrix
 //	}
 //	F.print("F:");
-	vector< vector<double> > costMatrix(3, vector<double>(3, 0));
-	costMatrix[0][0] = 10000;
-	costMatrix[0][1] = 4;
-	costMatrix[0][2] = 5;
-	costMatrix[1][0] = 10000;
-	costMatrix[1][1] = 10000;
-	costMatrix[1][2] = 6;
-	costMatrix[2][0] = 10000;
-	costMatrix[2][1] = 10000;
-	costMatrix[2][2] = 10000;
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			cout<< costMatrix[i][j]<<"\t";
-		}
-		cout << "\n";
-	}
-	HungarianAlgorithm HungAlgo;
-	vector<int> assignment;
+	//vector< vector<double> > costMatrix(3, vector<double>(3, 0));
+	//costMatrix[0][0] = 10000;
+	//costMatrix[0][1] = 4;
+	//costMatrix[0][2] = 5;
+	//costMatrix[1][0] = 10000;
+	//costMatrix[1][1] = 10000;
+	//costMatrix[1][2] = 6;
+	//costMatrix[2][0] = 10000;
+	//costMatrix[2][1] = 10000;
+	//costMatrix[2][2] = 10000;
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	for (int j = 0; j < 3; j++)
+	//	{
+	//		cout<< costMatrix[i][j]<<"\t";
+	//	}
+	//	cout << "\n";
+	//}
+	//HungarianAlgorithm HungAlgo;
+	//vector<int> assignment;
 
-	double cost = HungAlgo.Solve(costMatrix, assignment);
+	//double cost = HungAlgo.Solve(costMatrix, assignment);
 
-	for (unsigned int x = 0; x < costMatrix.size(); x++)
-		std::cout << x << "," << assignment[x] << "\t";
+	//for (unsigned int x = 0; x < costMatrix.size(); x++)
+	//	std::cout << x << "," << assignment[x] << "\t";
 
-	std::cout << "\ncost: " << cost << std::endl;
+	//std::cout << "\ncost: " << cost << std::endl;
 
+	CVOI *VOI = new CVOI;
+	VOI->SetSizeZone(0, 6000);
+	CVector v1;
+	v1.x = 1000;
+	v1.y = 5000;
+	v1.z = 5000;
+	CResultOfScan r1(v1, 20, 0.0124);
+	VOI->pushMeasurements(r1);
+	VOI->pushSectorObserved(0.0200, 2000);
+	VOI->pushSectorObserved(0.0300, 4000);
+	VOI->pushSectorObserved(0.0450, 6000);
+	v1.x = 1500;
+	v1.y = 4900;
+	v1.z = 5000;
+	CResultOfScan r2(v1, 20, 0.0500);
+	VOI->pushMeasurements(r2);
+	VOI->pushSectorObserved(0.0600, 2000);
+	VOI->pushSectorObserved(0.0700, 4000);
+	VOI->pushSectorObserved(0.0850, 6000);
 	return 0;
 }

@@ -4,7 +4,6 @@
 #include "stadfx.h"
 using namespace arma;
 static mat &get_Rconst();
-
 class CMeasurements: public CResultOfScan{ 
 private:
 	int Nmiss;

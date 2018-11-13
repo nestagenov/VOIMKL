@@ -3,6 +3,7 @@
 #include <vector>
 #include "Measurements.h"
 #include "BaseTraceHypo.h"
+class CMeasurements;
 class CHypo;
 class CTrace;
 
